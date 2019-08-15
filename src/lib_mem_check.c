@@ -104,7 +104,12 @@ void *calloc_replacer(size_t nmemb, size_t size)
 
 void *realloc_replacer(void *ptr, size_t size)
 {
-
+  if (size == 0)
+  {
+    fprintf(stderr, "mem_check: Use free instead of realloc(ptr, 0) this might"
+              " be udnefined behavoiour on some compilers!!!\n");
+    return ptr;
+  }
   void * addr = NULL;
 
   addr = realloc(ptr, size);

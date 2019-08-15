@@ -29,8 +29,10 @@ void *reallocarray_replacer(void *ptr, size_t nmemb, size_t size);
 #define malloc(size) malloc_replacer(size); record_mem(__FILE__, __LINE__, __func__)
 #define free(ptr) free_replacer(ptr); record_mem(__FILE__, __LINE__, __func__)
 #define calloc(nmemb, size) calloc_replacer(nmemb, size); record_mem(__FILE__, __LINE__, __func__)
-#define realloc(ptr, size)  realloc_replacer(ptr, size); record_mem(__FILE__, __LINE__, __func__)
+#define realloc(ptr, size)  realloc_replacer(ptr, size);
+
 
 #ifdef _GNU_SOURCE
-#define rellococarray(ptr, nmemb, size) reallocarray_replacer(ptr, nmemb, size);
+#define rellococarray(ptr, nmemb, size) reallocarray_replacer(ptr, nmemb, size); \
+        record_mem(__FILE__, __LINE__, __func__)
 #endif
