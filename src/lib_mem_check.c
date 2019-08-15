@@ -90,11 +90,41 @@ void free_replacer(void *ptr)
 }
 
 
-void *calloc_replacer(size_t nmemb, size_t size);
-void *realloc_replacer(void *ptr, size_t size);
+void *calloc_replacer(size_t nmemb, size_t size)
+{
+
+  void * addr = NULL;
+
+  addr = calloc(nmemb, size);
+
+  memory_[mem_idx].ptr = addr;
+
+  return addr;
+}
+
+void *realloc_replacer(void *ptr, size_t size)
+{
+
+  void * addr = NULL;
+
+  addr = realloc(ptr, size);
+
+  memory_[mem_idx].ptr = addr;
+
+  return addr;
+}
 
 #ifdef _GNU_SOURCE
-void *reallocarray_replacer(void *ptr, size_t nmemb, size_t size);
+void *reallocarray_replacer(void *ptr, size_t nmemb, size_t size)
+{
+  void * addr = NULL;
+
+  addr = reallocarray(ptr, nmemb, size);
+
+  memory_[mem_idx].ptr = addr;
+
+  return addr;
+}
 #endif
 
 

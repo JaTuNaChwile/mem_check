@@ -7,8 +7,5 @@ int main(void)
 
   int * a = malloc(4*4);
 
-
-
   return 0;
-
 }
