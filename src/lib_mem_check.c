@@ -27,10 +27,8 @@ typedef struct
 
 } mem_node;
 
-
 mem_node memory_[DEFAULT_MEMORY_CALLS] = {0};
 unsigned long mem_idx = 0;
-
 
 /*******************************************************************************
  * Utility functions
