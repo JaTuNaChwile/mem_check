@@ -1,5 +1,5 @@
 # mem_check
-Simple lib to track used memory leaks. 
+Simple lib to track memory leaks. 
 
 ## Usage
 
